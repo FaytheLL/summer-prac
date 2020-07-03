@@ -1,0 +1,67 @@
+public class Main {
+
+    public static void Main(String[] args) {
+        Leader nightwing = new Leader("Nightwing");
+        Hero wondergirl = new Hero("Wonder Girl");
+        Hero supergirl = new Hero("Supergirl");
+        Villain deathstroke = new Villain("Deathstroke");
+        Bystander steve = new Bystander("Steve");
+
+        System.out.println(" ");
+
+        deathstroke.attack("to attack Steve");
+        supergirl.powers("to protect Steve");
+
+        System.out.println(" ");
+
+        deathstroke.yell("You will all die!");
+        nightwing.yell("Not if I can help it!");
+    }
+}
+class Hero extends Superhuman {
+    public Hero(String name) {
+        System.out.println(name + " is fighting");
+        this.name = name;
+    }
+}
+
+class Villain extends Murderer {
+    public Villain(String name) {
+        System.out.println(name + " is losing");
+        this.name = name;
+    }
+    public void yell(String text) {
+        System.out.println(name + " is yelling: " + text);
+    }
+}
+
+class Superhuman extends Person {
+    public void powers(String text) {
+        System.out.println(name + " uses superpowers " + text);
+    }
+}
+
+class Murderer extends Person {
+    public void attack(String text) {
+        System.out.println(name + " uses weapon " + text);
+    }
+}
+
+class Person {
+    String name;
+}
+
+class Bystander extends Person {
+    public Bystander(String name) {
+        System.out.println(name + " is running");
+    }
+}
+class Leader extends Person {
+    public Leader(String name) {
+        System.out.println(name + " is leading the charge");
+        this.name = name;
+    }
+    public void yell(String text) {
+        System.out.println(name + " is yelling: " + text);
+    }
+}
